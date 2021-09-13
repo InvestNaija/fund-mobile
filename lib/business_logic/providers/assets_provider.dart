@@ -33,6 +33,11 @@ class AssetsProvider extends ChangeNotifier{
     getPopularAssets();
   }
 
+  void cancelReservation(){
+    isMakingReservation = false;
+    notifyListeners();
+  }
+
   void getPopularAssets() async{
    SharesListResponseModel assets = await InvestmentRepository().getPopularAssets();
    if(assets.error == null && assets.status.toLowerCase() == 'success'){
@@ -44,7 +49,11 @@ class AssetsProvider extends ChangeNotifier{
 
   void getEIpoAssets() async{
     SharesListResponseModel assets = await InvestmentRepository().getEIpoShares();
-    eIpoAssets = assets.data.where((asset) => asset.type == 'ipo').toList();
+    if(assets.status.toLowerCase() == 'success') {
+      eIpoAssets = assets.data.where((asset) => asset.type == 'ipo').toList();
+    }else{
+      eIpoAssets = [];
+    }
     isLoadingEIpoAssets = false;
     notifyListeners();
   }
@@ -118,10 +127,6 @@ class AssetsProvider extends ChangeNotifier{
       country: country,
       maidenName: maidenName
     );
-
-    if(responseModel.status.toLowerCase() == 'success'){
-
-    }
 
     isCreatingCscs = false;
     notifyListeners();

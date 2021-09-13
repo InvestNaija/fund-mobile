@@ -1,7 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:invest_naija/business_logic/data/request/register_request_model.dart';
-import 'package:invest_naija/business_logic/data/response/nin_response_model.dart';
 import 'package:invest_naija/business_logic/data/response/register_response_model.dart';
 import 'package:invest_naija/business_logic/providers/register_provider.dart';
 import 'package:invest_naija/components/custom_button.dart';
@@ -59,13 +58,15 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> with DialogMixins
   TextEditingController confirmPasswordTextEditController;
   TextEditingController placeOfBirthTextEditController;
   TextEditingController motherMaidenTextEditController;
+  FocusNode passwordFocusNode = FocusNode();
+  FocusNode confirmPasswordFocusNode = FocusNode();
   bool hasAcceptedTermsAndConditions = false;
   final _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
     super.initState();
-    addressTextEditController = TextEditingController(text: widget.address);
+    addressTextEditController = TextEditingController(text: widget.address ?? '');
     passwordTextEditController = TextEditingController(text: "");
     bvnTextEditController = TextEditingController(text: widget.bvn);
     phoneTextEditController = TextEditingController(text: widget.phone);
@@ -136,6 +137,7 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> with DialogMixins
                     label: "Email",
                     readOnly: widget.email != null ? widget.email.isNotEmpty ? true  : false : false,
                     controller: emailTextEditController,
+                    keyboardType : TextInputType.emailAddress
                   ),
                   const SizedBox(height: 25,),
                   CustomTextField(
@@ -164,6 +166,7 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> with DialogMixins
                     label: "Your Password",
                     suffixIcon: "assets/images/show-password.png",
                     controller: passwordTextEditController,
+                    focusNode: passwordFocusNode,
                     onChange: (value){
                       setState(() {});
                     },
@@ -174,6 +177,7 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> with DialogMixins
                     suffixIcon: "assets/images/show-password.png",
                     controller: confirmPasswordTextEditController,
                     matcher: passwordTextEditController.text,
+                    focusNode: confirmPasswordFocusNode,
                   ),
                 ],
               )),

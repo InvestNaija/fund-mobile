@@ -6,6 +6,7 @@ import 'package:invest_naija/business_logic/data/response/payment_url_response.d
 import 'package:invest_naija/business_logic/data/response/transaction_response_model.dart';
 import 'package:invest_naija/business_logic/providers/customer_provider.dart';
 import 'package:invest_naija/business_logic/providers/payment_provider.dart';
+import 'package:invest_naija/business_logic/providers/transaction_provider.dart';
 import 'package:invest_naija/components/custom_button.dart';
 import 'package:invest_naija/components/custom_lead_icon.dart';
 import 'package:provider/provider.dart';
@@ -31,13 +32,14 @@ class _TransactionSummaryScreenState extends State<TransactionSummaryScreen> {
     super.initState();
     NumberFormat formatCurrency = NumberFormat.simpleCurrency(locale: Platform.localeName, name: widget.transaction.asset.currency);
     amount = widget.transaction.asset.sharePrice == 0 ? 'Pending price discovery' : formatCurrency.format(widget.transaction.asset.sharePrice);
-    int calcNumber = widget.transaction.asset.sharePrice == 0 ? 1 : widget.transaction.asset.sharePrice;
+    double calcNumber = widget.transaction.asset.sharePrice == 0 ? 1 : widget.transaction.asset.sharePrice;
     totalPrice =  formatCurrency.format(widget.transaction.unitsExpressed * calcNumber);
     estimatedUnits = widget.transaction.asset.sharePrice == 0 ? 'Pending price discovery' :  formatCurrency.format(widget.transaction.amount/widget.transaction.asset.sharePrice);
   }
 
   @override
   Widget build(BuildContext context) {
+    const TextStyle moneyStyle = TextStyle(fontFamily: 'RobotoMono', fontSize: 14, fontWeight: FontWeight.w700, color: Constants.blackColor);
     return Scaffold(
       backgroundColor: Constants.dashboardBackgroundColor,
       appBar: PreferredSize(
@@ -104,7 +106,7 @@ class _TransactionSummaryScreenState extends State<TransactionSummaryScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("Price Per Share", style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Constants.neutralColor),),
-                          Text(amount ?? '', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: Constants.blackColor),),
+                          Text(amount ?? '', style: moneyStyle,),
                         ],
                       ),
                       SizedBox(height: 14,),
@@ -112,7 +114,7 @@ class _TransactionSummaryScreenState extends State<TransactionSummaryScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const Text("Estimated Units", style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Constants.neutralColor),),
-                          Text(estimatedUnits, style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: Constants.blackColor),),
+                          Text(estimatedUnits, style: moneyStyle,),
                         ],
                       ),
                       const SizedBox(height: 14,),
@@ -120,7 +122,7 @@ class _TransactionSummaryScreenState extends State<TransactionSummaryScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("Total", style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Constants.neutralColor),),
-                          Text(totalPrice, style: TextStyle(fontFamily: 'RobotoMono', fontSize: 14, fontWeight: FontWeight.w700, color: Constants.blackColor),),
+                          Text(totalPrice, style: moneyStyle,),
                         ],
                       ),
                       SizedBox(height: 14,),
@@ -152,21 +154,18 @@ class _TransactionSummaryScreenState extends State<TransactionSummaryScreen> {
                     color: Constants.blackColor),
               ),
               const SizedBox(height: 33,),
-              Consumer2<CustomerProvider, PaymentProvider>(
-               builder: (context,customerProvider, paymentProvider, cachedWidget){
+              Consumer3<CustomerProvider, PaymentProvider, TransactionProvider>(
+               builder: (context,customerProvider, paymentProvider,  transactionProvider, cachedWidget){
                 return CustomButton(
                   data: "Make Payment",
                   isLoading: customerProvider.isFetchingCustomersDetails || paymentProvider.isFetchingPaymentLink,
                   textColor: Constants.whiteColor,
                   color: Constants.primaryColor,
                   onPressed: () async {
-                    //await customerProvider.getCustomerDetails();
                     PaymentUrlResponse response = await paymentProvider.getPaymentUrl(reservationId: widget.transaction.id, gateway: 'flutterwave');
                     if(response.error == null){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {
-                        return PaymentWebScreen(response.data.authorizationUrl);
-                        }
-                      ));
+                      await Navigator.pushNamed(context, '/payment-web', arguments: response.data.authorizationUrl);
+                      transactionProvider.refreshTransactions();
                     }else{
                       final snackBar = SnackBar(
                           content: Container(
