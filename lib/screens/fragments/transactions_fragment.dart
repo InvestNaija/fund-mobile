@@ -4,14 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:invest_naija/business_logic/providers/transaction_provider.dart';
 import 'package:invest_naija/components/custom_button.dart';
-import 'package:invest_naija/components/custom_checkbox.dart';
 import 'package:invest_naija/components/filter_checkbox.dart';
 import 'package:invest_naija/components/no_transactions.dart';
 import 'package:invest_naija/components/transaction_row.dart';
 import 'package:provider/provider.dart';
-
 import '../../constants.dart';
-import '../transaction_summary_screen.dart';
 
 class TransactionsFragment extends StatefulWidget {
   @override

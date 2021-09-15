@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:invest_naija/business_logic/data/response/shares_response_model.dart';
 import 'package:invest_naija/business_logic/providers/assets_provider.dart';
-import 'package:invest_naija/components/custom_lead_icon.dart';
 import 'package:invest_naija/components/investment_product_card.dart';
 import 'package:invest_naija/constants.dart';
 import '../e-ipo_details_screen.dart';
@@ -30,43 +28,77 @@ class _InvestmentPlansFragmentState extends State<InvestmentPlansFragment> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 30,),
-          const Text("Funds", style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: Constants.blackColor),),
+          const Text("Investments", style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: Constants.blackColor),),
           const SizedBox(height: 5,),
           const Text(
-            "Choose from any of our funds to maximize your earnings and secure your future",
+            "Choose from any of our investments to maximize your earnings and secure your future",
             style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: Constants.neutralColor),),
           const SizedBox(height: 30,),
-          Row(
-            children: [
-              SvgPicture.asset("assets/images/explore.svg"),
-              const SizedBox(width: 10,),
-              const Text("Explore Offerings", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Constants.blackColor),),
-            ],
-          ),
-          const SizedBox(height: 10,),
-          Consumer<AssetsProvider>(
-            builder: (context, assetsProvider, child) {
-              return Expanded(
-                child: GridView.builder(
-                    gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                      childAspectRatio: 0.8,
-                      crossAxisSpacing: 4.0,
-                      maxCrossAxisExtent: 200,
-                    ),
-                    itemCount: assetsProvider.isLoadingEIpoAssets ? 5 : assetsProvider.eIpoAssets.length,
-                    itemBuilder: (context, index) {
-                      return assetsProvider.isLoadingEIpoAssets? LoadingInvestmentProductCard() :
-                      InvestmentProductCard(
-                        asset: assetsProvider.eIpoAssets[index],
-                        onTap: (){
-                          Navigator.of(context).push(
-                              MaterialPageRoute(builder: (context) => EIpoDetailsScreen(asset: assetsProvider.eIpoAssets[index],)));
-                        },
-                      );
-                    }),
-              );
-            },
-          ),
+          Expanded(
+            child: ListView(
+              children: [
+                Row(
+                  children: [
+                    SvgPicture.asset("assets/images/explore.svg"),
+                    const SizedBox(width: 10,),
+                    const Text("Explore Bonds", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Constants.blackColor),),
+                  ],
+                ),
+                const SizedBox(height: 10,),
+                Consumer<AssetsProvider>(
+                  builder: (context, assetsProvider, child) {
+                    var bonds = assetsProvider.eIpoAssets.where((asset) => asset.type == 'bond').toList();
+                    return GridView.builder(
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                          childAspectRatio: 0.8,
+                          crossAxisSpacing: 4.0,
+                          maxCrossAxisExtent: 200,
+                        ),
+                        itemCount: assetsProvider.isLoadingEIpoAssets ? 5 : bonds.length,
+                        itemBuilder: (context, index) {
+                          return assetsProvider.isLoadingEIpoAssets? LoadingInvestmentProductCard() :
+                          InvestmentProductCard(
+                            asset: bonds[index],
+                            onTap: ()=> Navigator.pushNamed(context, '/asset-detail', arguments: bonds[index]),
+                          );
+                        });
+                  },
+                ),
+                const SizedBox(height: 25,),
+                Row(
+                  children: [
+                    SvgPicture.asset("assets/images/explore.svg"),
+                    const SizedBox(width: 10,),
+                    const Text("Explore Funds", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Constants.blackColor),),
+                  ],
+                ),
+                const SizedBox(height: 10,),
+                Consumer<AssetsProvider>(
+                  builder: (context, assetsProvider, child) {
+                    var funds = assetsProvider.eIpoAssets.where((asset) => asset.type == 'fund').toList();
+                    return GridView.builder(
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                          childAspectRatio: 0.8,
+                          crossAxisSpacing: 4.0,
+                          maxCrossAxisExtent: 200,
+                        ),
+                        itemCount: assetsProvider.isLoadingEIpoAssets ? 5 : funds.length,
+                        itemBuilder: (context, index) {
+                          return assetsProvider.isLoadingEIpoAssets? LoadingInvestmentProductCard() :
+                          InvestmentProductCard(
+                            asset: funds[index],
+                            onTap: ()=> Navigator.pushNamed(context, '/asset-detail', arguments: funds[index]),
+                          );
+                        });
+                  },
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );

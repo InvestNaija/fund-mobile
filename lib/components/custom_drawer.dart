@@ -69,7 +69,7 @@ class CustomDrawer extends StatelessWidget with ApplicationMixin{
             ListTile(
               leading: SvgPicture.asset("assets/images/chart.svg",
                   width: 25, height: 25),
-              title: const Text('Funds',
+              title: const Text('Investments',
                   style: const TextStyle(
                       color: Constants.whiteColor,
                       fontSize: 15,

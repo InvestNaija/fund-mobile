@@ -52,9 +52,11 @@ class InvestmentProductCard extends StatelessWidget {
                     Text(
                      this.asset.sharePrice == 0 ? 'Pending price discovery' : '${formatCurrency.format(this.asset.sharePrice)}',
                       style: const TextStyle(
+                        fontFamily: 'Roboto',
                         fontWeight: FontWeight.w500,
                         color: Constants.blackColor,
-                        fontSize: 13,),
+                        fontSize: 13,
+                      ),
                     ),
                   ],
                 ),
