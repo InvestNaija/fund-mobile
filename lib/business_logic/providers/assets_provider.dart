@@ -41,7 +41,7 @@ class AssetsProvider extends ChangeNotifier{
   void getPopularAssets() async{
    SharesListResponseModel assets = await InvestmentRepository().getPopularAssets();
    if(assets.error == null && assets.status.toLowerCase() == 'success'){
-     trendingAssets = assets.data.where((asset) => asset.type == 'ipo').toList();
+     trendingAssets = assets.data.where((asset) => asset.type != 'ipo').toList();
    }
    isLoadingTrendingShares = false;
    notifyListeners();
@@ -50,7 +50,7 @@ class AssetsProvider extends ChangeNotifier{
   void getEIpoAssets() async{
     SharesListResponseModel assets = await InvestmentRepository().getEIpoShares();
     if(assets.status.toLowerCase() == 'success') {
-      eIpoAssets = assets.data.where((asset) => asset.type == 'ipo').toList();
+      eIpoAssets = assets.data.where((asset) => asset.type != 'ipo').toList();
     }else{
       eIpoAssets = [];
     }

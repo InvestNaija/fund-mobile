@@ -31,20 +31,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00524fa3-72ad-4826-9a4e-c51f63ca1f5f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/1783910168/xyz.luan.audioplayers.android.audioplayers.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/1783910168/xyz.luan.audioplayers.android.audioplayers.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/android.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/android.app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/debug/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/com/chapelhilldenham/invest_naija/CustomSplashScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/com/chapelhilldenham/funds/CustomSplashScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/com/chapelhilldenham/invest_naija/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/com/chapelhilldenham/funds/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/com/chapelhilldenham/invest_naija/SplashView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/com/chapelhilldenham/funds/SplashView.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/profile/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/profile/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/app/generated/source/buildConfig/debug/com/chapelhilldenham/invest_naija/BuildConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../build/app/generated/source/buildConfig/debug/com/chapelhilldenham/funds/BuildConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/business_logic/providers/assets_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/business_logic/providers/assets_provider.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

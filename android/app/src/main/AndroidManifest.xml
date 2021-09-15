@@ -2,8 +2,8 @@
     package="com.chapelhilldenham.funds">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="Invest Naija e-Offerings"
-        android:icon="@mipmap/ic_logo">
+        android:label="ChapelHill Denham Funds"
+        android:icon="@mipmap/ic_launcher">
         <activity
             android:name="com.chapelhilldenham.funds.MainActivity"
             android:launchMode="singleTop"
