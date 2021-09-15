@@ -1,4 +1,4 @@
-package com.chapelhilldenham.invest_naija
+package com.chapelhilldenham.funds
 
 import android.content.Context
 import android.os.Bundle

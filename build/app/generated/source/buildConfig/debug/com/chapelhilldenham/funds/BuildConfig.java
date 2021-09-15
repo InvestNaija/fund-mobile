@@ -1,7 +1,7 @@
 /**
  * Automatically generated file. DO NOT MODIFY
  */
-package com.chapelhilldenham.invest_naija;
+package com.chapelhilldenham.funds;
 
 public final class BuildConfig {
   public static final boolean DEBUG = Boolean.parseBoolean("true");

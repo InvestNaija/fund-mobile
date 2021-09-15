@@ -1,4 +1,4 @@
-package com.chapelhilldenham.invest_naija
+package com.chapelhilldenham.funds
 
 import androidx.annotation.Nullable
 import io.flutter.embedding.android.FlutterActivity
