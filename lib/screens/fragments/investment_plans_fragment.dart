@@ -30,10 +30,10 @@ class _InvestmentPlansFragmentState extends State<InvestmentPlansFragment> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 30,),
-          const Text("Offerings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: Constants.blackColor),),
+          const Text("Funds", style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: Constants.blackColor),),
           const SizedBox(height: 5,),
           const Text(
-            "Choose from any of our offerings to maximize your earnings and secure your future",
+            "Choose from any of our funds to maximize your earnings and secure your future",
             style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: Constants.neutralColor),),
           const SizedBox(height: 30,),
           Row(

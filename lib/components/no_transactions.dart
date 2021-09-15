@@ -19,7 +19,7 @@ class NoTransactions extends StatelessWidget {
           ),
           const SizedBox(height: 10,),
           const Text(
-            "Your most recent transactions will show\nhere when you start transacting",
+            "Your transactions will show\nhere when you start transacting",
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 12, color: Constants.neutralColor,),
           ),

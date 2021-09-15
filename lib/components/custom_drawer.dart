@@ -1,8 +1,8 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:invest_naija/business_logic/providers/login_provider.dart';
 import 'package:invest_naija/mixins/application_mixin.dart';
-import 'package:invest_naija/screens/login_screen.dart';
 import 'package:invest_naija/utils/formatter_util.dart';
 import 'package:provider/provider.dart';
 
@@ -21,6 +21,7 @@ class CustomDrawer extends StatelessWidget with ApplicationMixin{
         padding: EdgeInsets.only(top: 76, bottom: 52),
         color: Constants.navyBlueColor,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(left: 10),
@@ -68,7 +69,7 @@ class CustomDrawer extends StatelessWidget with ApplicationMixin{
             ListTile(
               leading: SvgPicture.asset("assets/images/chart.svg",
                   width: 25, height: 25),
-              title: const Text('Offerings',
+              title: const Text('Funds',
                   style: const TextStyle(
                       color: Constants.whiteColor,
                       fontSize: 15,
@@ -117,43 +118,32 @@ class CustomDrawer extends StatelessWidget with ApplicationMixin{
               },
             ),
             const Spacer(),
-            // Padding(
-            //   padding: EdgeInsets.only(right: 50, left: 20),
-            //   child: Container(
-            //     padding: EdgeInsets.only(right: 20, left: 20),
-            //     decoration: BoxDecoration(
-            //         color: Constants.greenColor,
-            //         borderRadius: BorderRadius.circular(10)),
-            //     height: 77,
-            //     child: Row(
-            //       children: [
-            //         Transform.translate(
-            //             offset: Offset(0, -20),
-            //             child: SvgPicture.asset(
-            //               "assets/images/lady.svg",
-            //             )),
-            //         Flexible(
-            //           child: Column(
-            //             crossAxisAlignment: CrossAxisAlignment.center,
-            //             mainAxisAlignment: MainAxisAlignment.center,
-            //             children: [
-            //               Align(
-            //                   alignment: Alignment.centerLeft,
-            //                   child: const Text('Go to Learning Page',
-            //                       style: TextStyle(
-            //                           color: Constants.whiteColor,
-            //                           fontSize: 14,
-            //                           fontWeight: FontWeight.w800))),
-            //               const Text(
-            //                   'Click here to see InvestNaija Learning Platform',
-            //                   style: const TextStyle(color: Constants.whiteColor, fontSize: 10)),
-            //             ],
-            //           ),
-            //         )
-            //       ],
-            //     ),
-            //   ),
-            // ),
+            Padding(
+              padding: EdgeInsets.only(right: 50, left: 20),
+              child: Container(
+                padding: EdgeInsets.only(right: 20, left: 20, top: 10, bottom: 10),
+                decoration: BoxDecoration(
+                    color: Constants.greenColor,
+                    borderRadius: BorderRadius.circular(10)),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Expert support available to you 24/7', style: TextStyle(color: Constants.whiteColor),),
+                    SizedBox(height: 5,),
+                    Text('via mail', style: TextStyle(color: Constants.navyBlueColor),),
+                    SizedBox(height: 5,),
+                    RichText(text: TextSpan(
+                        text: 'or call',
+                        children: [
+                          TextSpan(text: '0700-CHAPELHILL\n'),
+                          TextSpan(text: '(07002427354455)', style: TextStyle(fontSize: 12)),
+                        ]
+                    ),
+                    )
+                  ],
+                ),
+              ),
+            ),
             // const SizedBox(height: 20,),
           ],
         ),

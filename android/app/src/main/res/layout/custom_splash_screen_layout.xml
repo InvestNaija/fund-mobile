@@ -4,7 +4,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffffff"
+        android:background="#10232f"
         android:orientation="vertical">
 
         <LinearLayout
@@ -19,7 +19,7 @@
                 android:layout_marginBottom="25dp"
                 android:layout_width="300dp"
                 android:layout_height="200dp"
-                android:src="@drawable/logo" />
+                android:src="@drawable/fund_logo" />
 
 
         </LinearLayout>
