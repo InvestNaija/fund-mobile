@@ -11,7 +11,7 @@ import 'package:invest_naija/screens/fragments/home_fragment.dart';
 import 'package:invest_naija/screens/fragments/transactions_fragment.dart';
 import 'package:provider/provider.dart';
 import '../main.dart';
-import 'fragments/investment_plans_fragment.dart';
+import 'fragments/investments_fragment.dart';
 
 class DashboardScreen extends StatefulWidget {
   @override
@@ -64,7 +64,7 @@ class _DashboardScreenState extends State<DashboardScreen> with DialogMixins, Ap
               index: customerProvider.currentPage,
               children: [
                 HomeFragment(),
-                InvestmentPlansFragment(),
+                InvestmentsFragment(),
                 TransactionsFragment(),
                 AccountSettingFragment()
               ],

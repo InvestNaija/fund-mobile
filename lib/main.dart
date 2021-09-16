@@ -11,6 +11,7 @@ import 'package:invest_naija/screens/dashboard_screen.dart';
 import 'package:invest_naija/screens/enter_bank_information_screen.dart';
 import 'package:invest_naija/screens/expression_of_interest_screen.dart';
 import 'package:invest_naija/screens/login_screen.dart';
+import 'package:invest_naija/screens/purchase_bond_screen.dart';
 import 'package:invest_naija/screens/splash_screen.dart';
 import 'package:invest_naija/screens/walkthrough_screen.dart';
 import 'package:provider/provider.dart';
@@ -25,6 +26,7 @@ import 'business_logic/providers/proof_of_signature_document_provider.dart';
 import 'business_logic/providers/register_provider.dart';
 import 'business_logic/providers/transaction_provider.dart';
 import 'business_logic/providers/assets_provider.dart';
+import 'screens/bond_details_screen.dart';
 import 'screens/create_cscs_account_screen.dart';
 import 'screens/e-ipo_details_screen.dart';
 import 'screens/enter_cscs_number.dart';
@@ -118,6 +120,10 @@ class _MyAppState extends State<MyApp> with DialogMixins, ApplicationMixin{
             SharesResponseModel asset = settings.arguments as SharesResponseModel;
             return MaterialPageRoute(builder: (_) => ExpressionOfInterestScreen(asset: asset,));
           }
+          if (settings.name == '/purchase-bond') {
+            SharesResponseModel asset = settings.arguments as SharesResponseModel;
+            return MaterialPageRoute(builder: (_) => PurchaseBondScreen(asset: asset,));
+          }
           if (settings.name == '/create-cscs') {
             return MaterialPageRoute(builder: (_) => CreateCscsAccountScreen());
           }
@@ -128,6 +134,10 @@ class _MyAppState extends State<MyApp> with DialogMixins, ApplicationMixin{
           if (settings.name == '/transaction-summary') {
             TransactionResponseModel transaction = settings.arguments as TransactionResponseModel;
             return MaterialPageRoute(builder: (_) => TransactionSummaryScreen(transaction: transaction,));
+          }
+          if (settings.name == '/bond-detail') {
+            SharesResponseModel asset = settings.arguments as SharesResponseModel;
+            return MaterialPageRoute(builder: (_) => BondDetailsScreen(asset: asset,));
           }
           if (settings.name == '/asset-detail') {
             SharesResponseModel asset = settings.arguments as SharesResponseModel;
