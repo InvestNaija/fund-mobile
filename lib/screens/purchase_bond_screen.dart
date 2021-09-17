@@ -9,6 +9,7 @@ import 'package:invest_naija/business_logic/providers/payment_provider.dart';
 import 'package:invest_naija/components/custom_button.dart';
 import 'package:invest_naija/components/custom_lead_icon.dart';
 import 'package:invest_naija/components/custom_textfield.dart';
+import 'package:invest_naija/components/rounded_checkbox.dart';
 import 'package:invest_naija/mixins/application_mixin.dart';
 import 'package:invest_naija/mixins/dialog_mixin.dart';
 import 'package:provider/provider.dart';
@@ -25,13 +26,14 @@ class PurchaseBondScreen extends StatefulWidget {
 }
 
 class _PurchaseBondScreenState extends State<PurchaseBondScreen> with DialogMixins, ApplicationMixin{
-  TextEditingController amountController = TextEditingController();
-
+  bool reinvest = true;
+  TextEditingController amountController;
   GlobalKey<FormState> formKey;
 
   @override
   void initState() {
     super.initState();
+    amountController = TextEditingController();
     formKey = GlobalKey<FormState>();
     Provider.of<CustomerProvider>(context, listen: false).getCustomerDetailsSilently();
   }
@@ -129,7 +131,23 @@ class _PurchaseBondScreenState extends State<PurchaseBondScreen> with DialogMixi
                     },
                 ),
                 Divider(),
-                const SizedBox(height: 40,),
+                const SizedBox(height: 20,),
+                RoundedCheckBox(
+                  name: 'Scrip (Reinvest your dividends/distributions and compound your returns)',
+                  selected: reinvest,
+                  onChanged: (value){
+                    setState(()=> reinvest = true);
+                  },
+                ),
+                const SizedBox(height: 10,),
+                RoundedCheckBox(
+                  name: 'Cash distribution (Collect your dividend)',
+                  selected: !reinvest,
+                  onChanged: (value){
+                    setState(()=> reinvest = false);
+                  },
+                ),
+                const SizedBox(height: 20,),
                 Consumer3<AssetsProvider, CustomerProvider, PaymentProvider>(
                   builder: (context, assetsProvider, customerProvider, paymentProvider, child) {
                     return CustomButton(

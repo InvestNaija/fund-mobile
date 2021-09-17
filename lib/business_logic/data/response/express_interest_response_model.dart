@@ -18,7 +18,15 @@ class ExpressInterestData{
   SharesResponseModel asset;
   ReservationResponseModel reservation;
 
-  ExpressInterestData.fromJson(Map<String, dynamic> json) :
-      asset = json["asset"] == null ?  null : SharesResponseModel.fromJson(json["asset"]),
-      reservation = json["reservation"] == null ? null : ReservationResponseModel.fromJson(json["reservation"]);
+  ExpressInterestData.fromJson(Map<String, dynamic> json) {
+    try{
+      asset =
+      json["asset"] == null ? null : SharesResponseModel.fromJson(json["asset"]);
+      reservation =
+      json["reservation"] == null ? null : ReservationResponseModel.fromJson(
+          json["reservation"]);
+    }catch(exception){
+      throw exception;
+    }
+  }
 }

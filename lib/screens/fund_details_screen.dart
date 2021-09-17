@@ -175,7 +175,7 @@ class _FundDetailsScreenState extends State<FundDetailsScreen> {
                     return;
                   }
 
-                  Navigator.pushNamed(context,'/express-interest', arguments: widget.asset);
+                  Navigator.pushNamed(context,'/purchase-fund', arguments: widget.asset);
                 },
               ),
             ],

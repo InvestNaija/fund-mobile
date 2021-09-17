@@ -9,7 +9,7 @@ import 'package:invest_naija/mixins/application_mixin.dart';
 import 'package:invest_naija/mixins/dialog_mixin.dart';
 import 'package:invest_naija/screens/dashboard_screen.dart';
 import 'package:invest_naija/screens/enter_bank_information_screen.dart';
-import 'package:invest_naija/screens/expression_of_interest_screen.dart';
+import 'package:invest_naija/screens/purchase_fund_screen.dart';
 import 'package:invest_naija/screens/login_screen.dart';
 import 'package:invest_naija/screens/purchase_bond_screen.dart';
 import 'package:invest_naija/screens/splash_screen.dart';
@@ -116,9 +116,9 @@ class _MyAppState extends State<MyApp> with DialogMixins, ApplicationMixin{
           if (settings.name == '/enter-bank-detail') {
             return MaterialPageRoute(builder: (_) => EnterBankInformationScreen());
           }
-          if (settings.name == '/express-interest') {
+          if (settings.name == '/purchase-fund') {
             SharesResponseModel asset = settings.arguments as SharesResponseModel;
-            return MaterialPageRoute(builder: (_) => ExpressionOfInterestScreen(asset: asset,));
+            return MaterialPageRoute(builder: (_) => PurchaseFundScreen(asset: asset,));
           }
           if (settings.name == '/purchase-bond') {
             SharesResponseModel asset = settings.arguments as SharesResponseModel;

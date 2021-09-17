@@ -9,6 +9,8 @@ import 'package:invest_naija/business_logic/providers/payment_provider.dart';
 import 'package:invest_naija/components/custom_button.dart';
 import 'package:invest_naija/components/custom_lead_icon.dart';
 import 'package:invest_naija/components/custom_textfield.dart';
+import 'package:invest_naija/components/filter_checkbox.dart';
+import 'package:invest_naija/components/rounded_checkbox.dart';
 import 'package:invest_naija/mixins/application_mixin.dart';
 import 'package:invest_naija/mixins/dialog_mixin.dart';
 import 'package:provider/provider.dart';
@@ -16,22 +18,23 @@ import 'package:provider/provider.dart';
 import '../constants.dart';
 import 'payment_web_screen.dart';
 
-class ExpressionOfInterestScreen extends StatefulWidget {
+class PurchaseFundScreen extends StatefulWidget {
 
   final SharesResponseModel asset;
 
-  const ExpressionOfInterestScreen({Key key, this.asset}) : super(key: key);
+  const PurchaseFundScreen({Key key, this.asset}) : super(key: key);
 
   @override
-  _ExpressionOfInterestScreenState createState() => _ExpressionOfInterestScreenState();
+  _PurchaseFundScreenState createState() => _PurchaseFundScreenState();
 }
 
-class _ExpressionOfInterestScreenState extends State<ExpressionOfInterestScreen> with DialogMixins, ApplicationMixin{
+class _PurchaseFundScreenState extends State<PurchaseFundScreen> with DialogMixins, ApplicationMixin{
   TextEditingController unitQuantityTextEditingController = TextEditingController();
   TextEditingController estimatedAmountTextEditingController = TextEditingController();
 
   bool makeSpecifiedUnitReadOnly = false;
   bool makeEstimatedAmountReadOnly = false;
+  bool reinvest = true;
   GlobalKey<FormState> formKey;
 
   @override
@@ -67,7 +70,7 @@ class _ExpressionOfInterestScreenState extends State<ExpressionOfInterestScreen>
             key: formKey,
             child: Column(
               children: [
-                const SizedBox(height: 50,),
+                const SizedBox(height: 20,),
                 const Align(
                   alignment: Alignment.centerLeft,
                   child: const Text("Enter your transaction details",
@@ -114,7 +117,23 @@ class _ExpressionOfInterestScreenState extends State<ExpressionOfInterestScreen>
                      }
                   },
                 ),
-                const SizedBox(height: 40,),
+                const SizedBox(height: 20,),
+                RoundedCheckBox(
+                  name: 'Scrip (Reinvest your dividends/distributions and compound your returns)',
+                  selected: reinvest,
+                  onChanged: (value){
+                    setState(()=> reinvest = true);
+                  },
+                ),
+                const SizedBox(height: 10,),
+                RoundedCheckBox(
+                  name: 'Cash distribution (Collect your dividend)',
+                  selected: !reinvest,
+                  onChanged: (value){
+                    setState(()=> reinvest = false);
+                  },
+                ),
+                const SizedBox(height: 20,),
                 Consumer3<AssetsProvider, CustomerProvider, PaymentProvider>(
                   builder: (context, assetsProvider, customerProvider, paymentProvider, child) {
                     return CustomButton(
@@ -124,21 +143,9 @@ class _ExpressionOfInterestScreenState extends State<ExpressionOfInterestScreen>
                       color: Constants.primaryColor,
                       onPressed: () async{
                         if(!formKey.currentState.validate()) return;
-
-                        bool hasCscs = await customerProvider.hasCscs();
-                        if(!hasCscs){
-                          showCscsDialog();
-                          return;
-                        }
-                        bool hasNuban = await customerProvider.hasNuban();
-                        if(!hasNuban){
-                          showBankDetailDialog();
-                          return;
-                        }
-                        String assetId = widget.asset.id;
                         int unit = int.parse(unitQuantityTextEditingController.text);
                         double amount = double.parse(estimatedAmountTextEditingController.text);
-                        var expressInterestResponse = await assetsProvider.payNow(assetId : assetId, units : unit, amount: amount);
+                        var expressInterestResponse = await assetsProvider.payNow(assetId : widget.asset.id, units : unit, amount: amount);
                         if(expressInterestResponse.error != null){
                           showSnackBar('Unable to express interest', expressInterestResponse.error.message);
                           return;
@@ -185,105 +192,12 @@ class _ExpressionOfInterestScreenState extends State<ExpressionOfInterestScreen>
     );
   }
 
-  void showCreateCscsModal(){
-    showDialog<void>(
-      context: context,
-      barrierDismissible: false, // user must tap button!
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('A CSCS account number would be created for you', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),),
-          content: SingleChildScrollView(
-            child: ListBody(
-              children: const <Widget>[
-                Text('Your CSCS number is mandatory/required to complete your application', style: TextStyle(fontSize: 14)),
-              ],
-            ),
-          ),
-          actions: <Widget>[
-            TextButton(
-              child: const Text('Proceed', style: TextStyle(color: Constants.blackColor),),
-              onPressed: () {
-                Navigator.popAndPushNamed(context, '/create-cscs', arguments: true);
-              },
-            ),
-            TextButton(
-              child: const Text('Cancel', style: TextStyle(color: Constants.yellowColor)),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
+  @override
+  void dispose() {
+    print('it is at dispose');
+    super.dispose();
   }
 
-  void showCscsDialog(){
-    showDialog<void>(
-      context: context,
-      barrierDismissible: false, // user must tap button!
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Cscs Information', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
-          content: SingleChildScrollView(
-            child: ListBody(
-              children: const <Widget>[
-                Text('To make payment for this asset, you should have a CSCS Number. Do you have a CSCS Number?', style: TextStyle(fontSize: 14,)),
-              ],
-            ),
-          ),
-          actions: <Widget>[
-            TextButton(
-              child: const Text('Yes', style: TextStyle(color: Constants.blackColor),),
-              onPressed: () {
-                Navigator.popAndPushNamed(context, '/enter-cscs', arguments: true);
-              },
-            ),
-            TextButton(
-              child: const Text('No, I don\'t', style: TextStyle(color: Constants.yellowColor)),
-              onPressed: () {
-                Navigator.of(context).pop();
-                showCreateCscsModal();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  void showBankDetailDialog(){
-    showDialog<void>(
-      context: context,
-      barrierDismissible: false, // user must tap button!
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Bank Information'),
-          content: SingleChildScrollView(
-            child: ListBody(
-              children: const <Widget>[
-                Text('Please update your Bank detail to continue'),
-              ],
-            ),
-          ),
-          actions: <Widget>[
-            TextButton(
-              child: const Text('Update Bank Detail', style: TextStyle(color: Constants.blackColor),),
-              onPressed: () {
-                Navigator.popAndPushNamed(context, '/enter-bank-detail', arguments: true);
-              },
-            ),
-            TextButton(
-              child: const Text('Cancel', style: TextStyle(color: Constants.blackColor)),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
   void showSnackBar(String title, String msg){
     final snackBar = SnackBar(
       content: Container(
