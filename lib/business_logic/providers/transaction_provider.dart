@@ -5,7 +5,7 @@ import 'package:invest_naija/business_logic/repository/transactions_repository.d
 
 class TransactionProvider extends ChangeNotifier{
   bool loading = true;
-  double cumulativeEIpoInvestmentAmount = 0.0;
+  double portfolioAmount = 0.0;
 
   bool loadingRecentTransaction = true;
   List<TransactionResponseModel> recentTransactions = [];
@@ -52,6 +52,6 @@ class TransactionProvider extends ChangeNotifier{
      for(TransactionResponseModel transaction in transactions){
        tempAmount += (transaction.unitsExpressed * transaction.amount);
      }
-     cumulativeEIpoInvestmentAmount = tempAmount;
+     portfolioAmount = tempAmount;
   }
 }

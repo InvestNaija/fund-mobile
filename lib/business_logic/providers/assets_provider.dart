@@ -67,10 +67,10 @@ class AssetsProvider extends ChangeNotifier{
     return response;
   }
 
-  Future<ExpressInterestResponseModel> payNow({String assetId, int units, double amount}) async{
+  Future<ExpressInterestResponseModel> payNow({String assetId, int units, double amount, bool reinvest}) async{
     isMakingReservation = true;
     notifyListeners();
-    var response = await expressInterest(assetId: assetId, units: units, amount: amount);
+    var response = await expressInterest(assetId: assetId, units: units, amount: amount, reinvest: reinvest);
     isMakingReservation = false;
     notifyListeners();
     return response;
@@ -78,9 +78,9 @@ class AssetsProvider extends ChangeNotifier{
 
 
 
-  Future<ExpressInterestResponseModel> expressInterest({String assetId, int units, double amount}) async{
+  Future<ExpressInterestResponseModel> expressInterest({String assetId, int units, double amount, bool reinvest}) async{
     ExpressInterestResponseModel expressInterestResponse = await InvestmentRepository()
-         .expressInterest(assetId: assetId, units: units, amount: amount);
+         .expressInterest(assetId: assetId, units: units, amount: amount, reinvest : reinvest);
     return expressInterestResponse;
   }
 

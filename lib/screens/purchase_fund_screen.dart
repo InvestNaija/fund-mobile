@@ -145,7 +145,7 @@ class _PurchaseFundScreenState extends State<PurchaseFundScreen> with DialogMixi
                         if(!formKey.currentState.validate()) return;
                         int unit = int.parse(unitQuantityTextEditingController.text);
                         double amount = double.parse(estimatedAmountTextEditingController.text);
-                        var expressInterestResponse = await assetsProvider.payNow(assetId : widget.asset.id, units : unit, amount: amount);
+                        var expressInterestResponse = await assetsProvider.payNow(assetId : widget.asset.id, units : unit, amount: amount, reinvest: reinvest);
                         if(expressInterestResponse.error != null){
                           showSnackBar('Unable to express interest', expressInterestResponse.error.message);
                           return;

@@ -70,7 +70,7 @@ class InvestmentRepository{
     }
   }
 
-  Future<ExpressInterestResponseModel> expressInterest({String assetId, int units, double amount}) async {
+  Future<ExpressInterestResponseModel> expressInterest({String assetId, int units, double amount ,bool reinvest}) async {
     try{
     Response response =  await http.post(
         Uri.parse('${baseUrl}reservations/express-interest'),
@@ -78,7 +78,7 @@ class InvestmentRepository{
           'Content-Type': 'application/json',
           'Authorization': appLocalStorage.getToken(),
         },
-        body: convert.jsonEncode({'assetId': assetId, 'units': units, 'amount' : amount})
+        body: convert.jsonEncode({'assetId': assetId, 'units': units, 'amount' : amount, 'reinvest' : reinvest})
     ).timeout(const Duration(seconds: 60), onTimeout: () {
       throw TimeoutException(
           'The connection has timed out, Please try again!');
