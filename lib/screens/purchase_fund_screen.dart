@@ -145,14 +145,18 @@ class _PurchaseFundScreenState extends State<PurchaseFundScreen> with DialogMixi
                         if(!formKey.currentState.validate()) return;
                         int unit = int.parse(unitQuantityTextEditingController.text);
                         double amount = double.parse(estimatedAmountTextEditingController.text);
+                        if(amount < widget.asset.anticipatedMinPrice){
+                          showSnackBar(context, 'Information', 'Amount cannot be less than ${widget.asset.anticipatedMinPrice}');
+                          return;
+                        }
                         var expressInterestResponse = await assetsProvider.payNow(assetId : widget.asset.id, units : unit, amount: amount, reinvest: reinvest);
                         if(expressInterestResponse.error != null){
-                          showSnackBar('Unable to express interest', expressInterestResponse.error.message);
+                          showSnackBar(context, 'Unable to express interest', expressInterestResponse.error.message);
                           return;
                         }
                         var response = await paymentProvider.getPaymentUrl(reservationId: expressInterestResponse.data.reservation.id, gateway: 'flutterwave');
                         if(response.error != null){
-                          showSnackBar('Payment Error', response.error.message);
+                          showSnackBar(context, 'Payment Error', response.error.message);
                           return;
                         }
                         Navigator.pushNamed(context, '/payment-web', arguments: response.data.authorizationUrl);
@@ -196,21 +200,5 @@ class _PurchaseFundScreenState extends State<PurchaseFundScreen> with DialogMixi
   void dispose() {
     print('it is at dispose');
     super.dispose();
-  }
-
-  void showSnackBar(String title, String msg){
-    final snackBar = SnackBar(
-      content: Container(
-        height: 70,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(title, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),),
-            SizedBox(height: 15,),
-            Text(msg),
-          ],
-        ),
-      ),);
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }

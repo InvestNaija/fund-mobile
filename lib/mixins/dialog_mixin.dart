@@ -9,6 +9,21 @@ import '../constants.dart';
 
 class DialogMixins{
 
+  void showSnackBar(BuildContext context, String title, String msg){
+    final snackBar = SnackBar(
+      content: Container(
+        height: 70,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(title, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),),
+            SizedBox(height: 15,),
+            Text(msg),
+          ],
+        ),
+      ),);
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
 
   Future<dynamic> showUploadProfileImage(BuildContext context, {Function onCameraTapped, Function onGalleryTapped}){
     return showModalBottomSheet(
