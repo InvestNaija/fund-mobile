@@ -83,11 +83,6 @@ class _BondDetailsScreenState extends State<BondDetailsScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text("Share price", style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Constants.neutralColor),),
-                      const SizedBox(height: 4,),
-                      Text(sharePrice, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Constants.blackColor),),
-                      const SizedBox(height: 7,),
-                      Divider(),
                       const SizedBox(height: 10,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

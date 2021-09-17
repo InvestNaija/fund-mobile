@@ -157,7 +157,7 @@ class _ExpressionOfInterestScreenState extends State<ExpressionOfInterestScreen>
                 Consumer<AssetsProvider>(
                   builder: (context, assetsProvider, child) {
                     return CustomButton(
-                      data: "Pay Later",
+                      data: "Pay directly to bank",
                       isLoading: assetsProvider.isSavingReservation,
                       textColor: Constants.whiteColor,
                       color: Constants.innerBorderColor,

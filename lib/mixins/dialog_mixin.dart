@@ -98,6 +98,30 @@ class DialogMixins{
     );
   }
 
+  showDirectDepositDialog({BuildContext context, String title, String message, Function onClose}){
+    showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(title ?? 'Info', style: TextStyle(fontWeight: FontWeight.w700),),
+          content: SingleChildScrollView(
+            child: Text(message ?? 'Oops, and error occurred!!'),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Okay', style: TextStyle(color: Constants.blackColor),),
+              onPressed: () {
+                Navigator.of(context).pop();
+                if(onClose != null){onClose();}
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   showCssBottomSheet(BuildContext context,){
     showModalBottomSheet(
         context: context,

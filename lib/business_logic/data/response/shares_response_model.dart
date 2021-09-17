@@ -14,6 +14,7 @@ class SharesResponseModel {
  String createdAt;
  String updatedAt;
  String currency;
+ double minimumNoOfUnits;
 
  SharesResponseModel.fromJson(Map<String, dynamic> json){
   id = json["id"];
@@ -22,6 +23,7 @@ class SharesResponseModel {
   type = json["type"];
   anticipatedMaxPrice = json["anticipatedMaxPrice"] == null ? null : json["anticipatedMaxPrice"] * 1.0;
   anticipatedMinPrice = json["anticipatedMinPrice"] == null ? null : json["anticipatedMinPrice"] * 1.0;
+  minimumNoOfUnits = json["minimumNoOfUnits"] == null ? 0.0 : json["minimumNoOfUnits"] * 1.0;
   sharePrice = json["sharePrice"] * 1.0;
   availableShares = json["availableShares"];
   openForPurchase = json["openForPurchase"];

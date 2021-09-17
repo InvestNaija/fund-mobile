@@ -26,9 +26,6 @@ class _EIpoDetailsScreenState extends State<EIpoDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     final formatCurrency = NumberFormat.simpleCurrency(locale: Platform.localeName, name: widget.asset.currency);
-    String minAmount = formatCurrency.format(widget.asset.anticipatedMinPrice);
-    String maxAmount = FormatterUtil.formatNumber(widget.asset.availableShares);
-    String sharePrice = widget.asset.sharePrice == 0 ? 'Pending Price Discovery' : '${formatCurrency.format(widget.asset.sharePrice)}';
 
     return Scaffold(
       backgroundColor: Constants.dashboardBackgroundColor,
@@ -44,16 +41,9 @@ class _EIpoDetailsScreenState extends State<EIpoDetailsScreen> {
             title: Row(
               children: [
                 const SizedBox(width: 25,),
-                Image.network(widget.asset.image ?? "https://i.ibb.co/J5NWzMb/mtn.png", width: 24, height: 24,),
+                Image.network(widget.asset.image, width: 24, height: 24,),
                 const SizedBox(width: 13,),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(widget.asset.name ?? '', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Constants.blackColor),),
-                    Text("$minAmount - $maxAmount", style: TextStyle(fontSize: 10, fontFamily: 'RobotoMono', fontWeight: FontWeight.w700, color: Constants.neutralColor),),
-                  ],
-                ),
+                Text(widget.asset.name ?? '', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Constants.blackColor),),
               ],
             ),
           ),
@@ -83,11 +73,6 @@ class _EIpoDetailsScreenState extends State<EIpoDetailsScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text("Share price", style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Constants.neutralColor),),
-                      const SizedBox(height: 4,),
-                      Text(sharePrice, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Constants.blackColor),),
-                      const SizedBox(height: 7,),
-                      Divider(),
                       const SizedBox(height: 10,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -101,23 +86,23 @@ class _EIpoDetailsScreenState extends State<EIpoDetailsScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const Text("Offering Type", style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Constants.blackColor),),
-                          Text(widget.asset.type == 'ipo' ? 'Public Offer' : widget.asset.type, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Constants.blackColor),),
+                          Text(widget.asset.type.toUpperCase(), style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Constants.blackColor),),
                         ],
                       ),
                       const SizedBox(height: 12,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text("Minimum Price", style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Constants.blackColor),),
-                          Text(minAmount, style: TextStyle(fontSize: 12, fontFamily: 'RobotoMono', fontWeight: FontWeight.w600, color: Constants.blackColor),),
+                          const Text("Fund Price", style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Constants.blackColor),),
+                          Text(formatCurrency.format(widget.asset.sharePrice), style: TextStyle(fontSize: 12, fontFamily: 'RobotoMono', fontWeight: FontWeight.w600, color: Constants.blackColor),),
                         ],
                       ),
                       SizedBox(height: 12,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text("Available shares", style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Constants.blackColor),),
-                          Text(maxAmount, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Constants.blackColor),),
+                          const Text("Minimum units", style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Constants.blackColor),),
+                          Text(widget.asset.minimumNoOfUnits.toString(), style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Constants.blackColor),),
                         ],
                       ),
                       const SizedBox(height: 15,),

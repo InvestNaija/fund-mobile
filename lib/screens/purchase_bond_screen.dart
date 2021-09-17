@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -167,6 +166,13 @@ class _PurchaseBondScreenState extends State<PurchaseBondScreen> with DialogMixi
                       },
                     );
                   },
+                ),
+                const SizedBox(height: 20,),
+                CustomButton(
+                  data: "Pay directly to bank",
+                  textColor: Constants.whiteColor,
+                  color: Constants.innerBorderColor,
+                  onPressed: () async{},
                 ),
               ],
             ),
