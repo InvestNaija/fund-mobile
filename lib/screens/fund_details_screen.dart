@@ -12,15 +12,15 @@ import 'package:invest_naija/utils/formatter_util.dart';
 
 import '../constants.dart';
 
-class EIpoDetailsScreen extends StatefulWidget {
+class FundDetailsScreen extends StatefulWidget {
   final SharesResponseModel asset;
 
-  const EIpoDetailsScreen({Key key, this.asset}) : super(key: key);
+  const FundDetailsScreen({Key key, this.asset}) : super(key: key);
   @override
-  _EIpoDetailsScreenState createState() => _EIpoDetailsScreenState();
+  _FundDetailsScreenState createState() => _FundDetailsScreenState();
 }
 
-class _EIpoDetailsScreenState extends State<EIpoDetailsScreen> {
+class _FundDetailsScreenState extends State<FundDetailsScreen> {
   bool hasAcceptedTermsAndConditions = false;
   
   @override
@@ -110,13 +110,6 @@ class _EIpoDetailsScreenState extends State<EIpoDetailsScreen> {
                 ),
               ),),
               const SizedBox(height: 20,),
-              const Text("IPO Description",
-                style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w700,
-                    color: Constants.blackColor),
-              ),
-              const SizedBox(height: 12,),
               Card(child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Column(
@@ -125,7 +118,7 @@ class _EIpoDetailsScreenState extends State<EIpoDetailsScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(widget.asset.name ?? "MTN Nigeria", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Constants.blackColor),),
+                        Text('About ${widget.asset.name}', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Constants.blackColor),),
                         Image.network(widget.asset.image, width: 24, height: 24,)
                       ],
                     ),

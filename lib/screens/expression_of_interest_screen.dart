@@ -165,21 +165,14 @@ class _ExpressionOfInterestScreenState extends State<ExpressionOfInterestScreen>
                         if(!formKey.currentState.validate()){
                           return;
                         }
-                        ExpressInterestResponseModel response = await Provider.of<AssetsProvider>(context, listen: false).payLater(
-                          assetId : widget.asset.id,
-                          units :  int.parse(unitQuantityTextEditingController.text),
+                        showDirectDepositDialog(
+                            context: context,
+                            title: 'Make payment with direct deposits',
+                            onClose: (){
+                              //changePage(context,2);
+                              //Navigator.pushNamed(context,'/dashboard');
+                            }
                         );
-                        if(response.error == null){
-                          showSimpleModalDialog(
-                              context: context,
-                              title: 'Transaction saved',
-                              message: 'You can make payment in your transactions page later.',
-                              onClose: (){
-                                changePage(context,2);
-                                Navigator.pushNamed(context,'/dashboard');
-                              }
-                          );
-                        }
                       },
                     );
                   },

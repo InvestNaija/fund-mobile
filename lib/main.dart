@@ -28,7 +28,7 @@ import 'business_logic/providers/transaction_provider.dart';
 import 'business_logic/providers/assets_provider.dart';
 import 'screens/bond_details_screen.dart';
 import 'screens/create_cscs_account_screen.dart';
-import 'screens/e-ipo_details_screen.dart';
+import 'screens/fund_details_screen.dart';
 import 'screens/enter_cscs_number.dart';
 import 'screens/overall_container_screen.dart';
 import 'screens/payment_web_screen.dart';
@@ -139,9 +139,9 @@ class _MyAppState extends State<MyApp> with DialogMixins, ApplicationMixin{
             SharesResponseModel asset = settings.arguments as SharesResponseModel;
             return MaterialPageRoute(builder: (_) => BondDetailsScreen(asset: asset,));
           }
-          if (settings.name == '/asset-detail') {
+          if (settings.name == '/fund-detail') {
             SharesResponseModel asset = settings.arguments as SharesResponseModel;
-            return MaterialPageRoute(builder: (_) => EIpoDetailsScreen(asset: asset,));
+            return MaterialPageRoute(builder: (_) => FundDetailsScreen(asset: asset,));
           }
           return null; // Let `onUnknownRoute` handle this behavior.
         },

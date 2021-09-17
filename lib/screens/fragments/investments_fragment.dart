@@ -90,7 +90,7 @@ class _InvestmentsFragmentState extends State<InvestmentsFragment> {
                           return assetsProvider.isLoadingEIpoAssets? LoadingInvestmentProductCard() :
                           InvestmentProductCard(
                             asset: funds[index],
-                            onTap: ()=> Navigator.pushNamed(context, '/asset-detail', arguments: funds[index]),
+                            onTap: ()=> Navigator.pushNamed(context, '/fund-detail', arguments: funds[index]),
                           );
                         });
                   },

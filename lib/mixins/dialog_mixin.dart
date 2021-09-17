@@ -98,15 +98,31 @@ class DialogMixins{
     );
   }
 
-  showDirectDepositDialog({BuildContext context, String title, String message, Function onClose}){
+  showDirectDepositDialog({BuildContext context, String title, Function onClose}){
+    TextStyle headerStyle = TextStyle(color: Constants.gray7Color, fontWeight: FontWeight.w600);
+    TextStyle valueStyle = TextStyle(fontSize: 12);
     showDialog<void>(
       context: context,
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text(title ?? 'Info', style: TextStyle(fontWeight: FontWeight.w700),),
-          content: SingleChildScrollView(
-            child: Text(message ?? 'Oops, and error occurred!!'),
+          content: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text('Account Number :', style: headerStyle,),
+              Text('0004638698', style: valueStyle,),
+              SizedBox(height: 10,),
+              Text('Bank Name :', style: headerStyle,),
+              Text('Standard Chartered', style: valueStyle,),
+              SizedBox(height: 10,),
+              Text('Account Name :', style: headerStyle,),
+              Text('Coronation Trustees/Nigeria Dollar Income Fund (Cash)', style: valueStyle,),
+              SizedBox(height: 10,),
+              Text('Purpose of Payment :', style: headerStyle,),
+              Text('[your_registered_email] / Investment in Dollar Fund', style: valueStyle,),
+            ],
           ),
           actions: <Widget>[
             TextButton(

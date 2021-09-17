@@ -172,7 +172,16 @@ class _PurchaseBondScreenState extends State<PurchaseBondScreen> with DialogMixi
                   data: "Pay directly to bank",
                   textColor: Constants.whiteColor,
                   color: Constants.innerBorderColor,
-                  onPressed: () async{},
+                  onPressed: () async{
+                    showDirectDepositDialog(
+                        context: context,
+                        title: 'Make payment with direct deposits',
+                        onClose: (){
+                          //changePage(context,2);
+                          //Navigator.pushNamed(context,'/dashboard');
+                        }
+                    );
+                  },
                 ),
               ],
             ),
