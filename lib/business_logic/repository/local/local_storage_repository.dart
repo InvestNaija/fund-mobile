@@ -6,6 +6,8 @@ abstract class LocalStorageRepository{
   Future<bool> saveCustomer(CustomerResponseModel customer);
   Future<bool> setLoggedInStatus(bool isLoggedIn);
   bool getLoggedInStatus();
+  Future<bool> setHideBalance(bool shouldHide);
+  bool getHideBalance();
   Future<bool> clear();
   CustomerResponseModel getCustomer();
 }

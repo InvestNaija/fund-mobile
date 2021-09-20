@@ -107,7 +107,7 @@ class _HomeFragmentState extends State<HomeFragment> with ApplicationMixin{
                         const SizedBox(height: 35,),
                         Consumer<TransactionProvider>(
                           builder: (context, transactionProvider, child) {
-                            return DashboardDetailCard(walletBalance: transactionProvider.portfolioAmount?.toDouble() ?? 0.0,);
+                            return DashboardDetailCard(walletBalance: transactionProvider.portfolioAmount);
                           },
                         ),
                       ],

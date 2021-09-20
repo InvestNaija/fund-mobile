@@ -5,7 +5,7 @@ import 'package:invest_naija/business_logic/repository/transactions_repository.d
 
 class TransactionProvider extends ChangeNotifier{
   bool loading = true;
-  double portfolioAmount = 0.0;
+  Map<String, double> portfolioAmount = Map();
 
   bool loadingRecentTransaction = true;
   List<TransactionResponseModel> recentTransactions = [];
@@ -38,7 +38,7 @@ class TransactionProvider extends ChangeNotifier{
     TransactionListResponseModel transactionsResponse = await TransactionRepository().getTransactions();
     if(transactionsResponse.error == null){
       var tempTransactions = transactionsResponse.data.where((element) => element.asset.type != 'ipo').toList();
-      recentTransactions = tempTransactions.take(0).toList();
+      recentTransactions = tempTransactions.getRange(0,5).toList();
       transactions = tempTransactions;
       reservoir = tempTransactions;
       calculateCumulativeEIpoInvestmentAmount(transactionsResponse.data);
@@ -48,10 +48,15 @@ class TransactionProvider extends ChangeNotifier{
   }
 
   void calculateCumulativeEIpoInvestmentAmount(List<TransactionResponseModel> transactions){
-     double tempAmount = 0.0;
+     Map<String, double> currencyValue = Map();
      for(TransactionResponseModel transaction in transactions){
-       tempAmount += (transaction.unitsExpressed * transaction.amount);
+       String currency = transaction.asset.currency;
+       if(!currencyValue.containsKey(currency)){
+          currencyValue[currency] = transaction.amount;
+       }else{
+         currencyValue[currency] = transaction.amount + currencyValue[currency];
+       }
      }
-     portfolioAmount = tempAmount;
+     portfolioAmount = currencyValue;
   }
 }
