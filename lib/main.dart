@@ -89,7 +89,7 @@ class _MyAppState extends State<MyApp> with DialogMixins, ApplicationMixin{
       },
       child: MaterialApp(
         navigatorKey:navigatorKey,
-        title: 'CHD Funds',
+        title: 'ChapelHill Denham Funds',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           scaffoldBackgroundColor: Constants.whiteColor,

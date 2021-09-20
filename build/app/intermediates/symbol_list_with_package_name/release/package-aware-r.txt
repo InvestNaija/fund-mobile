@@ -1,4 +1,4 @@
-com.chapelhilldenham.invest_naija
+com.chapelhilldenham.funds
 attr alpha
 attr font
 attr fontProviderAuthority
@@ -41,6 +41,7 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+drawable fund_logo
 drawable ic_invest_naija_logo
 drawable launch_background
 drawable logo

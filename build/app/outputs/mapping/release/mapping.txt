@@ -1,7 +1,7 @@
 # compiler: R8
 # compiler_version: 2.1.62
 # min_api: 21
-# pg_map_id: 506f6d3
+# pg_map_id: 210961a
 # common_typos_disable
 androidx.activity.Cancellable -> androidx.activity.a:
 androidx.activity.ComponentActivity -> androidx.activity.b:
@@ -715,14 +715,14 @@ androidx.webkit.internal.WebkitToCompatConverter -> androidx.webkit.d.h:
     java.lang.reflect.InvocationHandler convertSafeBrowsingResponse(android.webkit.SafeBrowsingResponse) -> b
     android.webkit.WebResourceError convertWebResourceError(java.lang.reflect.InvocationHandler) -> c
     java.lang.reflect.InvocationHandler convertWebResourceError(android.webkit.WebResourceError) -> d
-com.chapelhilldenham.invest_naija.CustomSplashScreen -> com.chapelhilldenham.invest_naija.a:
+com.chapelhilldenham.funds.CustomSplashScreen -> com.chapelhilldenham.funds.a:
     void transitionToFlutter(java.lang.Runnable) -> a
     boolean doesSplashViewRememberItsTransition() -> b
     android.view.View createSplashView(android.content.Context,android.os.Bundle) -> c
     android.os.Bundle saveSplashScreenState() -> d
-com.chapelhilldenham.invest_naija.MainActivity -> com.chapelhilldenham.invest_naija.MainActivity:
+com.chapelhilldenham.funds.MainActivity -> com.chapelhilldenham.funds.MainActivity:
     io.flutter.embedding.android.SplashScreen provideSplashScreen() -> r
-com.chapelhilldenham.invest_naija.SplashView -> com.chapelhilldenham.invest_naija.b:
+com.chapelhilldenham.funds.SplashView -> com.chapelhilldenham.funds.b:
 com.google.android.exoplayer2.-$$Lambda$AUi-xTKH215bERtTSFavke1jDtE -> b.a.a.a.a:
     com.google.android.exoplayer2.-$$Lambda$AUi-xTKH215bERtTSFavke1jDtE INSTANCE -> a
     void invoke(java.lang.Object) -> a
