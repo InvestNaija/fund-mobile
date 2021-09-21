@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:invest_naija/components/custom_button.dart';
-import 'package:invest_naija/components/custom_icon_button.dart';
-import 'package:invest_naija/screens/create_cscs_account_screen.dart';
-import 'package:invest_naija/screens/enter_cscs_number.dart';
+import 'package:chd_funds/components/custom_button.dart';
+import 'package:chd_funds/components/custom_icon_button.dart';
+import 'package:chd_funds/screens/create_cscs_account_screen.dart';
+import 'package:chd_funds/screens/enter_cscs_number.dart';
 
 import '../constants.dart';
 

@@ -1,4 +1,4 @@
-import 'package:invest_naija/business_logic/data/response/customer_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/customer_response_model.dart';
 
 abstract class LocalStorageRepository{
   Future<bool> saveToken(String token);

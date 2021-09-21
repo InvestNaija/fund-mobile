@@ -1,9 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:image_picker_platform_interface/src/types/picked_file/unsupported.dart';
-import 'package:invest_naija/business_logic/data/response/data/document_data.dart';
-import 'package:invest_naija/business_logic/data/response/documents_reponse_model.dart';
-import 'package:invest_naija/business_logic/data/response/response_model.dart';
-import 'package:invest_naija/business_logic/repository/document_repository.dart';
+import 'package:chd_funds/business_logic/data/response/data/document_data.dart';
+import 'package:chd_funds/business_logic/data/response/documents_reponse_model.dart';
+import 'package:chd_funds/business_logic/data/response/response_model.dart';
+import 'package:chd_funds/business_logic/repository/document_repository.dart';
 
 class DocumentProvider extends ChangeNotifier{
 

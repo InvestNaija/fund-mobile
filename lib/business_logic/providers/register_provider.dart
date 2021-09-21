@@ -1,10 +1,10 @@
 import 'package:flutter/foundation.dart';
-import 'package:invest_naija/business_logic/data/request/register_request_model.dart';
-import 'package:invest_naija/business_logic/data/response/bvn_response_model.dart';
-import 'package:invest_naija/business_logic/data/response/nin_response_model.dart';
-import 'package:invest_naija/business_logic/data/response/response_model.dart';
-import 'package:invest_naija/business_logic/repository/auth_repository.dart';
-import 'package:invest_naija/business_logic/data/response/register_response_model.dart';
+import 'package:chd_funds/business_logic/data/request/register_request_model.dart';
+import 'package:chd_funds/business_logic/data/response/bvn_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/nin_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/response_model.dart';
+import 'package:chd_funds/business_logic/repository/auth_repository.dart';
+import 'package:chd_funds/business_logic/data/response/register_response_model.dart';
 
 class RegisterProvider extends ChangeNotifier{
 

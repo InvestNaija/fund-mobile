@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:invest_naija/business_logic/data/response/response_model.dart';
-import 'package:invest_naija/business_logic/providers/register_provider.dart';
-import 'package:invest_naija/components/custom_button.dart';
-import 'package:invest_naija/components/custom_lead_icon.dart';
-import 'package:invest_naija/components/otp/otp_field.dart';
-import 'package:invest_naija/components/otp/otp_field_style.dart';
-import 'package:invest_naija/components/otp/style.dart';
-import 'package:invest_naija/mixins/dialog_mixin.dart';
-import 'package:invest_naija/screens/login_screen.dart';
-import 'package:invest_naija/screens/successful_screen.dart';
+import 'package:chd_funds/business_logic/data/response/response_model.dart';
+import 'package:chd_funds/business_logic/providers/register_provider.dart';
+import 'package:chd_funds/components/custom_button.dart';
+import 'package:chd_funds/components/custom_lead_icon.dart';
+import 'package:chd_funds/components/otp/otp_field.dart';
+import 'package:chd_funds/components/otp/otp_field_style.dart';
+import 'package:chd_funds/components/otp/style.dart';
+import 'package:chd_funds/mixins/dialog_mixin.dart';
+import 'package:chd_funds/screens/login_screen.dart';
+import 'package:chd_funds/screens/successful_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../constants.dart';

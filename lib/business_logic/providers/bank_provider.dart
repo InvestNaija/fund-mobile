@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
-import 'package:invest_naija/business_logic/data/response/banks_response_model.dart';
-import 'package:invest_naija/business_logic/data/response/customer_response_model.dart';
-import 'package:invest_naija/business_logic/data/response/response_model.dart';
-import 'package:invest_naija/business_logic/data/response/verify_bank_account_response_model.dart';
-import 'package:invest_naija/business_logic/repository/local/local_storage.dart';
-import 'package:invest_naija/business_logic/repository/utility_repository.dart';
+import 'package:chd_funds/business_logic/data/response/banks_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/customer_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/response_model.dart';
+import 'package:chd_funds/business_logic/data/response/verify_bank_account_response_model.dart';
+import 'package:chd_funds/business_logic/repository/local/local_storage.dart';
+import 'package:chd_funds/business_logic/repository/utility_repository.dart';
 
 class BankProvider extends ChangeNotifier{
   bool bankAccountVerified = false;

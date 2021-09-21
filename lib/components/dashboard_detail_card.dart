@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:invest_naija/business_logic/repository/local/local_storage.dart';
+import 'package:chd_funds/business_logic/repository/local/local_storage.dart';
 import '../constants.dart';
 
 class DashboardDetailCard extends StatefulWidget {

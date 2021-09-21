@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:invest_naija/components/otp/style.dart';
+import 'package:chd_funds/components/otp/style.dart';
 
 import 'otp_field_style.dart';
 

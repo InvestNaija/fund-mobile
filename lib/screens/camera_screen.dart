@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
-import 'package:invest_naija/constants.dart';
+import 'package:chd_funds/constants.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 

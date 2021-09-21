@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:invest_naija/constants.dart';
+import 'package:chd_funds/constants.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class PaymentWebScreen extends StatefulWidget {

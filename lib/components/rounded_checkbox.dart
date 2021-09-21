@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:invest_naija/constants.dart';
+import 'package:chd_funds/constants.dart';
 
 class RoundedCheckBox extends StatelessWidget {
   final String name;

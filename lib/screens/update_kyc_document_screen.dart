@@ -1,17 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:io';
-import 'package:image_picker/image_picker.dart';
-import 'package:invest_naija/business_logic/providers/customer_provider.dart';
-import 'package:invest_naija/business_logic/providers/document_provider.dart';
-import 'package:invest_naija/components/custom_button.dart';
-import 'package:invest_naija/components/custom_lead_icon.dart';
-import 'package:invest_naija/components/custom_textfield.dart';
-import 'package:invest_naija/components/dropdown_below.dart';
-import 'package:invest_naija/constants.dart';
-import 'package:invest_naija/business_logic/data/response/response_model.dart';
+import '../business_logic/providers/document_provider.dart';
+import '../components/custom_lead_icon.dart';
+import '../constants.dart';
 import 'package:provider/provider.dart';
-
 import 'fragments/documents_upload/proof_of_address_screen.dart';
 import 'fragments/documents_upload/proof_of_id_screen.dart';
 import 'fragments/documents_upload/signature_screen.dart';

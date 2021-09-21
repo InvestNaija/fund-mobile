@@ -1,12 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:invest_naija/components/custom_button.dart';
-import 'package:invest_naija/components/custom_clipping.dart';
-import 'package:invest_naija/constants.dart';
-
+import '../components/custom_button.dart';
+import '../components/custom_clipping.dart';
+import '../constants.dart';
 import 'enter_bvn_screen.dart';
-import 'enter_nin_screen.dart';
 import 'login_screen.dart';
 
 class WalkThroughScreen extends StatefulWidget {

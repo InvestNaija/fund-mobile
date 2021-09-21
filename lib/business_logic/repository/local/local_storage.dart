@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:invest_naija/business_logic/data/response/customer_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/customer_response_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'local_storage_repository.dart';
 

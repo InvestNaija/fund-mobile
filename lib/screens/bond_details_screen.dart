@@ -4,11 +4,11 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:intl/intl.dart';
-import 'package:invest_naija/business_logic/data/response/shares_response_model.dart';
-import 'package:invest_naija/components/custom_button.dart';
-import 'package:invest_naija/components/custom_checkbox.dart';
-import 'package:invest_naija/components/custom_lead_icon.dart';
-import 'package:invest_naija/utils/formatter_util.dart';
+import 'package:chd_funds/business_logic/data/response/shares_response_model.dart';
+import 'package:chd_funds/components/custom_button.dart';
+import 'package:chd_funds/components/custom_checkbox.dart';
+import 'package:chd_funds/components/custom_lead_icon.dart';
+import 'package:chd_funds/utils/formatter_util.dart';
 
 import '../constants.dart';
 

@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:invest_naija/business_logic/providers/customer_provider.dart';
-import 'package:invest_naija/constants.dart';
-import 'package:invest_naija/screens/dashboard_screen.dart';
+import 'package:chd_funds/business_logic/providers/customer_provider.dart';
+import 'package:chd_funds/constants.dart';
+import 'package:chd_funds/screens/dashboard_screen.dart';
 import 'package:provider/provider.dart';
 
 class MediaPreviewScreen extends StatefulWidget {

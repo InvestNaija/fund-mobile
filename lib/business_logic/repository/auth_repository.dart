@@ -2,16 +2,16 @@ import 'dart:async';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:invest_naija/business_logic/data/request/register_request_model.dart';
-import 'package:invest_naija/business_logic/data/response/bvn_response_model.dart';
-import 'package:invest_naija/business_logic/data/response/error_response.dart';
+import 'package:chd_funds/business_logic/data/request/register_request_model.dart';
+import 'package:chd_funds/business_logic/data/response/bvn_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/error_response.dart';
 import 'dart:convert' as convert;
-import 'package:invest_naija/business_logic/data/response/login_response_model.dart';
-import 'package:invest_naija/business_logic/data/response/nin_response_model.dart';
-import 'package:invest_naija/business_logic/data/response/register_response_model.dart';
-import 'package:invest_naija/business_logic/data/response/response_model.dart';
-import 'package:invest_naija/business_logic/repository/api_util.dart';
-import 'package:invest_naija/business_logic/repository/local/local_storage.dart';
+import 'package:chd_funds/business_logic/data/response/login_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/nin_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/register_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/response_model.dart';
+import 'package:chd_funds/business_logic/repository/api_util.dart';
+import 'package:chd_funds/business_logic/repository/local/local_storage.dart';
 
 class AuthRepository {
   Future<LoginResponseModel> login({String email, String password}) async {

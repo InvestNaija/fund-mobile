@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
-import 'package:invest_naija/business_logic/data/response/transaction_list_response_model.dart';
-import 'package:invest_naija/business_logic/data/response/transaction_response_model.dart';
-import 'package:invest_naija/business_logic/repository/transactions_repository.dart';
+import 'package:chd_funds/business_logic/data/response/transaction_list_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/transaction_response_model.dart';
+import 'package:chd_funds/business_logic/repository/transactions_repository.dart';
 
 class TransactionProvider extends ChangeNotifier{
   bool loading = true;

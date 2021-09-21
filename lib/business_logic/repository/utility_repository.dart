@@ -2,11 +2,11 @@ import 'dart:async';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:invest_naija/business_logic/data/response/banks_response_model.dart';
-import 'package:invest_naija/business_logic/data/response/error_response.dart';
+import 'package:chd_funds/business_logic/data/response/banks_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/error_response.dart';
 import 'dart:convert' as convert;
-import 'package:invest_naija/business_logic/data/response/response_model.dart';
-import 'package:invest_naija/business_logic/data/response/verify_bank_account_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/response_model.dart';
+import 'package:chd_funds/business_logic/data/response/verify_bank_account_response_model.dart';
 import 'api_util.dart';
 import 'local/local_storage.dart';
 

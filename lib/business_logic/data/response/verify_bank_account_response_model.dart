@@ -1,4 +1,4 @@
-import 'package:invest_naija/business_logic/data/response/response_model.dart';
+import 'package:chd_funds/business_logic/data/response/response_model.dart';
 
 class VerifyBankAccountResponseModel extends ResponseModel{
   BankDetailResponseModel data;

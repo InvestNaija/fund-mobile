@@ -512,13 +512,13 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "invest_naija",
+      "name": "chd_funds",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-09-20T13:16:06.577436Z",
+  "generated": "2021-09-21T11:34:12.022510Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }

@@ -1,14 +1,14 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
-import 'package:invest_naija/business_logic/data/response/cscs_verification_response_model.dart';
-import 'package:invest_naija/business_logic/data/response/customer_response_model.dart';
-import 'package:invest_naija/business_logic/data/response/express_interest_response_model.dart';
-import 'package:invest_naija/business_logic/data/response/response_model.dart';
-import 'package:invest_naija/business_logic/data/response/shares_list_response_model.dart';
-import 'package:invest_naija/business_logic/data/response/shares_response_model.dart';
-import 'package:invest_naija/business_logic/repository/investment_repository.dart';
-import 'package:invest_naija/business_logic/repository/local/local_storage.dart';
+import 'package:chd_funds/business_logic/data/response/cscs_verification_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/customer_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/express_interest_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/response_model.dart';
+import 'package:chd_funds/business_logic/data/response/shares_list_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/shares_response_model.dart';
+import 'package:chd_funds/business_logic/repository/investment_repository.dart';
+import 'package:chd_funds/business_logic/repository/local/local_storage.dart';
 
 class AssetsProvider extends ChangeNotifier{
 

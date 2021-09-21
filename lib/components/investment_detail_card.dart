@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:invest_naija/utils/formatter_util.dart';
+import 'package:chd_funds/utils/formatter_util.dart';
 
 import '../constants.dart';
 

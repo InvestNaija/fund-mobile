@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:invest_naija/components/custom_button.dart';
-import 'package:invest_naija/components/custom_textfield.dart';
-import 'package:invest_naija/screens/otp_screen.dart';
+import 'package:chd_funds/components/custom_button.dart';
+import 'package:chd_funds/components/custom_textfield.dart';
+import 'package:chd_funds/screens/otp_screen.dart';
 
 import '../constants.dart';
 

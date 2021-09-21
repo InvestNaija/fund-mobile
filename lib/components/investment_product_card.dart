@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:invest_naija/business_logic/data/response/shares_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/shares_response_model.dart';
 import 'package:shimmer/shimmer.dart';
 import '../constants.dart';
 

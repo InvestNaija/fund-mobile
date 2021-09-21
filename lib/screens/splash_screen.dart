@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:invest_naija/business_logic/repository/local/local_storage.dart';
-import 'package:invest_naija/constants.dart';
+import 'package:chd_funds/business_logic/repository/local/local_storage.dart';
+import 'package:chd_funds/constants.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

@@ -1,9 +1,9 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:invest_naija/business_logic/providers/login_provider.dart';
-import 'package:invest_naija/mixins/application_mixin.dart';
-import 'package:invest_naija/utils/formatter_util.dart';
+import 'package:chd_funds/business_logic/providers/login_provider.dart';
+import 'package:chd_funds/mixins/application_mixin.dart';
+import 'package:chd_funds/utils/formatter_util.dart';
 import 'package:provider/provider.dart';
 
 import '../constants.dart';

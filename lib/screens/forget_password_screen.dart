@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:invest_naija/business_logic/data/response/login_response_model.dart';
-import 'package:invest_naija/business_logic/providers/login_provider.dart';
-import 'package:invest_naija/components/custom_button.dart';
-import 'package:invest_naija/components/custom_lead_icon.dart';
-import 'package:invest_naija/components/custom_textfield.dart';
-import 'package:invest_naija/mixins/dialog_mixin.dart';
-import 'package:invest_naija/screens/dashboard_screen.dart';
+import 'package:chd_funds/business_logic/data/response/login_response_model.dart';
+import 'package:chd_funds/business_logic/providers/login_provider.dart';
+import 'package:chd_funds/components/custom_button.dart';
+import 'package:chd_funds/components/custom_lead_icon.dart';
+import 'package:chd_funds/components/custom_textfield.dart';
+import 'package:chd_funds/mixins/dialog_mixin.dart';
+import 'package:chd_funds/screens/dashboard_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../constants.dart';

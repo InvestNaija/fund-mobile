@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:invest_naija/components/custom_button.dart';
+import 'package:chd_funds/components/custom_button.dart';
 import '../components/custom_lead_icon.dart';
 
 import '../constants.dart';

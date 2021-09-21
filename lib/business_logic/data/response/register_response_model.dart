@@ -1,5 +1,5 @@
-import 'package:invest_naija/business_logic/data/response/customer_response_model.dart';
-import 'package:invest_naija/business_logic/data/response/error_response.dart';
+import 'package:chd_funds/business_logic/data/response/customer_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/error_response.dart';
 
 class RegisterResponseModel{
   int code;

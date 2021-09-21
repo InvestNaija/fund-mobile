@@ -2,11 +2,11 @@ import 'dart:convert';
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:invest_naija/business_logic/data/response/customer_response_model.dart';
-import 'package:invest_naija/business_logic/data/response/login_response_model.dart';
-import 'package:invest_naija/business_logic/data/response/response_model.dart';
-import 'package:invest_naija/business_logic/repository/auth_repository.dart';
-import 'package:invest_naija/business_logic/repository/local/local_storage.dart';
+import 'package:chd_funds/business_logic/data/response/customer_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/login_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/response_model.dart';
+import 'package:chd_funds/business_logic/repository/auth_repository.dart';
+import 'package:chd_funds/business_logic/repository/local/local_storage.dart';
 
 class CustomerProvider extends ChangeNotifier{
   CustomerResponseModel user = CustomerResponseModel();

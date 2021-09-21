@@ -1,6 +1,6 @@
-import 'package:invest_naija/business_logic/data/response/reservation_response_model.dart';
-import 'package:invest_naija/business_logic/data/response/response_model.dart';
-import 'package:invest_naija/business_logic/data/response/shares_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/reservation_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/response_model.dart';
+import 'package:chd_funds/business_logic/data/response/shares_response_model.dart';
 
 class ExpressInterestResponseModel extends ResponseModel{
 

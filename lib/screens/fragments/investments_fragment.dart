@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:invest_naija/business_logic/providers/assets_provider.dart';
-import 'package:invest_naija/components/investment_product_card.dart';
-import 'package:invest_naija/constants.dart';
+import 'package:chd_funds/business_logic/providers/assets_provider.dart';
+import 'package:chd_funds/components/investment_product_card.dart';
+import 'package:chd_funds/constants.dart';
 import 'package:provider/provider.dart';
 
 class InvestmentsFragment extends StatefulWidget {

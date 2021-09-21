@@ -3,12 +3,12 @@ import 'dart:io';
 
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:invest_naija/business_logic/data/response/cscs_verification_response_model.dart';
-import 'package:invest_naija/business_logic/data/response/error_response.dart';
-import 'package:invest_naija/business_logic/data/response/express_interest_response_model.dart';
-import 'package:invest_naija/business_logic/data/response/response_model.dart';
+import 'package:chd_funds/business_logic/data/response/cscs_verification_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/error_response.dart';
+import 'package:chd_funds/business_logic/data/response/express_interest_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/response_model.dart';
 import 'dart:convert' as convert;
-import 'package:invest_naija/business_logic/data/response/shares_list_response_model.dart';
+import 'package:chd_funds/business_logic/data/response/shares_list_response_model.dart';
 import 'api_util.dart';
 import 'local/local_storage.dart';
 

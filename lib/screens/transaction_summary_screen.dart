@@ -2,17 +2,15 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:invest_naija/business_logic/data/response/payment_url_response.dart';
-import 'package:invest_naija/business_logic/data/response/transaction_response_model.dart';
-import 'package:invest_naija/business_logic/providers/customer_provider.dart';
-import 'package:invest_naija/business_logic/providers/payment_provider.dart';
-import 'package:invest_naija/business_logic/providers/transaction_provider.dart';
-import 'package:invest_naija/components/custom_button.dart';
-import 'package:invest_naija/components/custom_lead_icon.dart';
+import 'package:chd_funds/business_logic/data/response/payment_url_response.dart';
+import 'package:chd_funds/business_logic/data/response/transaction_response_model.dart';
+import 'package:chd_funds/business_logic/providers/customer_provider.dart';
+import 'package:chd_funds/business_logic/providers/payment_provider.dart';
+import 'package:chd_funds/business_logic/providers/transaction_provider.dart';
+import 'package:chd_funds/components/custom_button.dart';
+import 'package:chd_funds/components/custom_lead_icon.dart';
 import 'package:provider/provider.dart';
-
 import '../constants.dart';
-import 'payment_web_screen.dart';
 
 class TransactionSummaryScreen extends StatefulWidget {
   final TransactionResponseModel transaction;
